@@ -1,0 +1,12 @@
+spring:
+  cache:
+    type: redis
+  cloud:
+    gateway:
+      routes:
+        - id: hello-world
+          uri: https://httpbin.org/
+          predicates:
+            - Path=/hello
+          filters:
+            - SetPath=/get
